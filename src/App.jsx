@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 function App() {
   const [length, setLength] = useState(7);
-  const [inludeNum, setIncludeNum] = useState(false);
-  const [inludeSpecChar, setIncludeSpecChar] = useState(false);
+  const [includeNum, setIncludeNum] = useState(false);
+  const [includeSpecChar, setIncludeSpecChar] = useState(false);
   const [password, setPassword] = useState("");
 
   const genPass = useCallback(() => {
@@ -14,10 +14,10 @@ function App() {
     let allStr = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
     let allNum = "1234567890";
     let allSpecChar = "!@#$%^&*()~`";
-    if (inludeNum) {
+    if (includeNum) {
       allStr += allNum;
     }
-    if (inludeSpecChar) {
+    if (includeSpecChar) {
       allStr += allSpecChar;
     }
     for (let index = 0; index < length; index++) {
@@ -25,11 +25,11 @@ function App() {
       generatedPassword += allStr.charAt(charNum);
     }
     setPassword(generatedPassword);
-  }, [length, inludeNum, inludeSpecChar]);
+  }, [length, includeNum, includeSpecChar]);
 
   useEffect(() => {
     genPass();
-  }, [length, inludeNum, inludeSpecChar]);
+  }, [length, includeNum, includeSpecChar]);
 
   return (
     <div className="container">
@@ -57,7 +57,7 @@ function App() {
           className="isNum"
           type="checkbox"
           id="numbers"
-          defaultChecked={inludeNum}
+          defaultChecked={includeNum}
           onChange={() => {
             setIncludeNum((prevState) => !prevState);
           }}
@@ -68,7 +68,7 @@ function App() {
         <input
           className="isSpecChar"
           type="checkbox"
-          defaultChecked={inludeSpecChar}
+          defaultChecked={includeSpecChar}
           id="specialChars"
           onChange={() => {
             setIncludeSpecChar((prevState) => !prevState);
