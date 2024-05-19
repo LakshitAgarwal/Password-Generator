@@ -45,7 +45,6 @@ To get started with the project, follow these steps:
 1. Open your web browser and go to `http://localhost:3000`.
 2. Customize the password settings using the provided options.
 3. Click the "Generate Password" button to create a new password.
-4. Use the "Copy to Clipboard" button to easily copy the generated password.
 
 ## Technologies Used
 - React
